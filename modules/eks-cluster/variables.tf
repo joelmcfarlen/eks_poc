@@ -2,6 +2,11 @@
 
 // Environment
 
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+}
+
 variable "environment" {
   type        = string
   description = "Environment name (configured in root file)"
@@ -48,6 +53,29 @@ variable "cluster_role_arn" {
 variable "node_role_arn" {
   description = "IAM role ARN for the EKS managed node group"
   type        = string
+}
+
+variable "alb_controller_role_arn" {
+  description = "IRSA role ARN for the AWS Load Balancer Controller"
+  type        = string
+}
+
+variable "app_name" {
+  description = "Kubernetes app/deployment name"
+  type        = string
+  default     = "nginx-webserver"
+}
+
+variable "svc_name" {
+  description = "Kubernetes Service name"
+  type        = string
+  default     = "nginx-service"
+}
+
+variable "ingress_name" {
+  description = "Kubernetes Ingress name"
+  type        = string
+  default     = null # module will coalesce to "${var.environment}-nginx-ing" if you used that logic
 }
 
 variable "node_group_desired_size" {

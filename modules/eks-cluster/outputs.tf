@@ -29,3 +29,8 @@ output "oidc_issuer_url" {
   value       = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
   description = "OIDC issuer URL (use later for IRSA/ALB controller)"
 }
+
+output "alb_controller_role_arn" {
+  value       = aws_iam_role.alb_controller_role.arn
+  description = "IRSA role for the AWS Load Balancer Controller"
+}

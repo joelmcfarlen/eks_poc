@@ -18,4 +18,12 @@ resource "aws_eks_cluster" "eks_cluster" {
     var.tags,
     { Name = "${var.environment}-eks-cluster" }
   )
+
+  # Prevent Terraform from attempting an EKS update
+  lifecycle {
+    ignore_changes = [
+      compute_config,
+      storage_config,
+    ]
+  }
 }
