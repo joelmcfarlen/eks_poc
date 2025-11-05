@@ -1,5 +1,8 @@
 
 
+// ROOT LOCALS
+
+
 locals {
   name_prefix = var.environment
 
