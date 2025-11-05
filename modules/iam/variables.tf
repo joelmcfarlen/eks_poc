@@ -6,7 +6,7 @@ variable "environment" {
 }
 
 variable "tags" {
-  description = "Tags to apply to all resources (applied from root)"
+  description = "Tags to apply to all resources (configured in root file)"
   type        = map(string)
   default     = {}
 }

@@ -63,3 +63,31 @@ variable "subnet_pub_3" {
   description = "Public subnet 3 ID"
   type        = string
 }
+
+
+// EKS
+
+variable "node_group_ami_type" {
+  description = "AMI type for the EKS managed node group"
+  type        = string
+}
+
+variable "node_group_instance_type" {
+  description = "Instance type for the EKS managed node group"
+  type        = list(string)
+}
+
+variable "node_group_desired_size" {
+  description = "Desired node count for the EKS managed node group"
+  type        = number
+}
+
+variable "node_group_min_size" {
+  description = "Minimum node count for the EKS managed node group"
+  type        = number
+}
+
+variable "node_group_max_size" {
+  description = "Maximum node count for the EKS managed node group"
+  type        = number
+}
