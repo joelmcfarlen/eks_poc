@@ -25,6 +25,6 @@ subnet_pub_3  =   "subnet-00a619f063f3cca54"
 
 node_group_ami_type       =   "AL2023_x86_64_STANDARD"
 node_group_instance_type  =   ["t3.micro"]
-node_group_desired_size   =   1
+node_group_desired_size   =   2
 node_group_min_size       =   1
-node_group_max_size       =   1
+node_group_max_size       =   3
