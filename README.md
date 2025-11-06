@@ -160,7 +160,6 @@ terraform destroy
 - The **ALB** is deployed in **public subnets** for inbound HTTPS access.
 - The **AWS Load Balancer Controller** must be healthy:
     kubectl -n kube-system get pods | grep alb
-  ```
 - ACM certificates must:
   - Use a **fully qualified domain name** (e.g., demo.cogspace.local)
   - Have **RSA 2048/4096-bit keys** and **SHA-256+** signature algorithms
