@@ -19,6 +19,7 @@ module "eks_cluster" {
   source                   = "./modules/eks-cluster"
   aws_region               = var.aws_region 
   environment              = var.environment
+  alb_certificate_arn      = var.alb_certificate_arn
   vpc_id                   = var.vpc
   private_subnets          = [var.subnet_pv_1, var.subnet_pv_2, var.subnet_pv_3]
   public_subnets           = [var.subnet_pub_1, var.subnet_pub_2, var.subnet_pub_3]

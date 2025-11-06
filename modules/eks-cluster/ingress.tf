@@ -6,14 +6,17 @@ resource "kubernetes_ingress_v1" "nginx_ingress" {
     namespace = "default"
     labels    = { env = var.environment }
     annotations = {
-      "kubernetes.io/ingress.class"               = "alb"
-      "alb.ingress.kubernetes.io/scheme"          = "internet-facing"
-      "alb.ingress.kubernetes.io/target-type"     = "ip"
-      "alb.ingress.kubernetes.io/listen-ports"    = "[{\"HTTP\":80}]"
+      "kubernetes.io/ingress.class"                 = "alb"
+      "alb.ingress.kubernetes.io/scheme"            = "internet-facing"
+      "alb.ingress.kubernetes.io/target-type"       = "ip"
 
-      "alb.ingress.kubernetes.io/group.name"          = "${var.environment}-alb-group"
-      "alb.ingress.kubernetes.io/load-balancer-name"  = "${var.environment}-nginx-alb"
-      "alb.ingress.kubernetes.io/tags"                = join(",", [
+      "alb.ingress.kubernetes.io/listen-ports"      = jsonencode([{ "HTTPS" = 443 }])
+      "alb.ingress.kubernetes.io/certificate-arn"   = var.alb_certificate_arn
+      "alb.ingress.kubernetes.io/ssl-redirect"      = "443"
+
+      "alb.ingress.kubernetes.io/group.name"        = "${var.environment}-alb-group"
+      "alb.ingress.kubernetes.io/load-balancer-name"= "${var.environment}-nginx-alb"
+      "alb.ingress.kubernetes.io/tags"              = join(",", [
         for k, v in merge(
           var.tags,
           {
@@ -33,6 +36,7 @@ resource "kubernetes_ingress_v1" "nginx_ingress" {
           path_type = "Prefix"
           backend {
             service {
+              # keep your current reference
               name = kubernetes_service_v1.nginx_service.metadata[0].name
               port { number = 80 }
             }

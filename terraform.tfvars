@@ -5,9 +5,10 @@
 
 // Environment
 
-aws_region    =   "us-east-1"
-environment   =   "demo"
-project       =   "cogspace"
+aws_region            =   "us-east-1"
+environment           =   "demo"
+project               =   "cogspace"
+alb_certificate_arn   =   "arn:aws:acm:us-east-1:901207487591:certificate/9cfaa111-67bd-42ea-945f-1f3d68cf66fe"
 
 
 // Networking

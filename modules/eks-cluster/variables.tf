@@ -18,6 +18,11 @@ variable "tags" {
   description = "Common tags (configured in root file)"
 }
 
+variable "alb_certificate_arn" {
+  description = "ARN of the SSL certificate in ACM for ALB HTTPS listener"
+  type        = string
+}
+
 
 // Networking
 
