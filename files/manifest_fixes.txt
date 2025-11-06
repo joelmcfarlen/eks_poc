@@ -3,4 +3,4 @@
 Simple fixes:
 
 - app names must match through the manifest
-- port 80 (not 8080) is required for a good deployment to server the app
+- port 80 (not 8080) is required for a good deployment to serve the app
