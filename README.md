@@ -53,7 +53,7 @@ This setup ensures workloads remain private while allowing controlled inbound ac
 
 ## Configuration
 
-Edit the `terraform.tfvars` file and update with your own values:
+Edit the `terraform.tfvars` file and update with your own values. NOTE: All variables are configured in the root files.
 
 ```hcl
 environment         = ""
