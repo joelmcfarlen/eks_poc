@@ -1,0 +1,6 @@
+
+
+Simple fixes:
+
+- app names must match through the manifest
+- port 80 (not 8080) if required for a good deployment to server the app
