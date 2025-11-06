@@ -151,7 +151,6 @@ Server: nginx
 To remove all AWS resources created by this project:
 
 terraform destroy
-```
 
 ---
 
@@ -162,7 +161,6 @@ terraform destroy
 - The **AWS Load Balancer Controller** must be healthy:
     kubectl -n kube-system get pods | grep alb
   ```
-  Expected: `2/2 Running`
 - ACM certificates must:
   - Use a **fully qualified domain name** (e.g., demo.cogspace.local)
   - Have **RSA 2048/4096-bit keys** and **SHA-256+** signature algorithms
